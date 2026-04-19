@@ -13,3 +13,13 @@ Question 4
 A* was implemented and in bigMaze A*(cost 210, nodes 549) and UCS(cost 210, nodes 620) A* was better at predicted levels. On openMaze DFS(cost 298, nodes 576), BFS(cost 54, nodes 682), UCS(cost 54, nodes 682), and A*(cost 54, nodes 535). DFS did quite badly, BFS and UCS are identicle and found the seemingly best strategy, and A* was most optimal due to the heuristic.
 
 Question 5
+Used a compact state of (pacmanPosition, visitedCorners), where visitedCorners is a 4-tuple of booleans matching the four corners. BFS in tinyCorners found the 28 step shortest path and in mediumCorners found the expected 1966 nodes.
+
+Question 6
+Implemented a non-trivial corners heuristic. It computes a Manhattan-distance minimum spanning tree over the current position plus all remaining corners, which stays admissible and consistent while giving A* much more guidance than a zero heuristic. On mediumCorners A*(cost 106, nodes 1136) was well within the requirement.
+
+Question 7
+Implemented foodHeuristic as an maximum maze distance to all remaining food, using cached maze distances for consistency and speed. A* in testSearch(cost 7, nodes 8) and trickySearch(cost 60, nodes 4137) was well within the requirement.
+
+Question 8
+The suboptimal solve of 350 cost was achieved. The reason it is suboptimal is because it is very greedy. It focuses entirely on the closest dot every step instead of optimizing the route.
